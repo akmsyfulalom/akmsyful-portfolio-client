@@ -1,10 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { FaGithub, FaLink } from 'react-icons/fa';
+import LoadingSpinner from '../../Components/LoadingSpinner/LoadingSpinner';
 
 const Projects = () => {
 
-    const { data: allProjects = [] } = useQuery({
+    const { data: allProjects = [], isLoading } = useQuery({
         queryKey: ['allProjects'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/allProjects')
@@ -13,9 +14,13 @@ const Projects = () => {
         }
     })
 
+    if (isLoading) {
+        return <LoadingSpinner />
+    }
+
     return (
         <div className='md:mx-10 mx-5'>
-            <h1 className='pb-10  text-center md:text-7xl text-4xl text-white '>My Projects</h1>
+            <h1 className='py-10  text-center md:text-7xl text-4xl text-white '>My Projects</h1>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-7 my-16'>
                 {
                     allProjects?.map(project => <div key={project._id} className="card card-compact  text-white  shadow-2xl">

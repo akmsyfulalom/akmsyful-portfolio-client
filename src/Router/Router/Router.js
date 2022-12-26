@@ -1,4 +1,5 @@
 import About from "../../Pages/About/About";
+import ViewBlog from "../../Pages/Blogs/ViewBlog";
 import Contact from "../../Pages/Contact/Contact";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -33,6 +34,12 @@ const router = createBrowserRouter([
             {
                 path: '/contact',
                 element: <Contact></Contact>
+            },
+            {
+                path: '/blog/:id',
+                element: <ViewBlog></ViewBlog>,
+                loader: ({ params }) => fetch(`http://localhost:5000/blog/${params.id}`),
+
             }
 
         ]

@@ -30,7 +30,7 @@ const Contact = () => {
     return (
 
         <div className=' mb-5  md:mx-10 mx-5 text-white' >
-            <h1 className='md:text-7xl font-mono font-bold text-5xl text-center pb-10 '>Contact </h1>
+            <h1 className='md:text-7xl font-mono font-bold text-5xl text-center py-10 '>Contact </h1>
             <div className='hero-content grid lg:grid-cols-2 md:grid-cols-2 gap-7 items-center  '>
                 <div className='col-span-1 px-5'>
                     <h1 className='text-2xl font-bold mb-2 text-white'>Quick Contact</h1>
@@ -59,7 +59,7 @@ const Contact = () => {
                     success ?
                         loading ? <EmailSendSpinner /> : <ThankYou />
                         :
-                        <form ref={form} onSubmit={sendEmail} className="card flex-shrink-0 w-full shadow-2xl border-t-2 ">
+                        <form ref={form} onSubmit={sendEmail} className="card flex-shrink-0 w-full rounded-none  ">
                             <div className="card-body ">
                                 <div className="form-control">
                                     <label className="label">

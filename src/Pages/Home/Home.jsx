@@ -5,6 +5,7 @@ import HomeBlogs from '../HomeBlogs/HomeBlogs';
 
 import Banner from './Banner/Banner';
 import HomeProjects from './HomeProjects/HomeProjects';
+import MyServices from './MyServices/MyServices';
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
         <div >
             <Banner />
             <HomeProjects />
+            <MyServices />
             <About />
             <HomeBlogs />
             <Contact />

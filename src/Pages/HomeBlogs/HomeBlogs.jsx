@@ -2,10 +2,11 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaAlignJustify } from "react-icons/fa";
+import LoadingSpinner from '../../Components/LoadingSpinner/LoadingSpinner';
 
 const HomeBlogs = () => {
 
-    const { data: blogs = [] } = useQuery({
+    const { data: blogs = [], isLoading } = useQuery({
         queryKey: ['blogs'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/blogs')
@@ -13,7 +14,9 @@ const HomeBlogs = () => {
             return data;
         }
     })
-
+    if (isLoading) {
+        return <LoadingSpinner />
+    }
     return (
         <div className='md:mx-10 mx-5'>
             <h1 className='text-center md:text-5xl text-2xl text-white my-10 font-bold '> Blogs</h1>
@@ -27,7 +30,7 @@ const HomeBlogs = () => {
 
                             <p>{blog?.decs}</p>
                             <div className="card-actions flex justify-around ">
-                                <Link to='' target="_blank" rel="noopener noreferrer" className="btn btn-success  bg-gradient-to-r from-neutral to-primary text-white font-bold">Read more</Link>
+                                <Link to={`/blog/${blog?._id}`} className="btn btn-success  bg-gradient-to-r from-neutral to-primary text-white font-bold">Read more</Link>
                             </div>
                         </div>
                     </div>)

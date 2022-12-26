@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import MyPhoto from '../../assets/MyPhoto.JPG';
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import LoadingSpinner from '../../Components/LoadingSpinner/LoadingSpinner';
 
 const About = () => {
+    const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false)
+        }, 2000)
+    }, []);
     return (
         <div className='md:py-10 py-5 md:mx-10 mx-5 text-white'>
 
-            <h1 className='md:text-7xl font-mono font-bold text-5xl text-center  '>About me</h1>
+            <h1 className='md:text-7xl font-mono text-5xl text-center  '>About me</h1>
             <div className='grid md:grid-cols-2 items-center'>
                 <div className='col-span-1 '>
-                    <img className='w-1/2 mx-auto rounded-2xl shadow-2xl my-5' src={MyPhoto} alt="" />
+                    <>
+                        {
+                            loading ? <LoadingSpinner /> : <img className='w-1/2 mx-auto rounded-2xl shadow-2xl my-5' src={MyPhoto} alt="" />
+                        }
+                    </>
                 </div>
                 <div>
                     <h1 className='font-bold text-4xl pb-5'>AKM SYFUL ALOM</h1>

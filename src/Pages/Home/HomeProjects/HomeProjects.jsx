@@ -1,11 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import { FaGithub, FaLink, FaAlignJustify } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import LoadingSpinner from '../../../Components/LoadingSpinner/LoadingSpinner';
 
 
 const HomeProjects = () => {
 
-    const { data: projects = [] } = useQuery({
+    const { data: projects = [], isLoading } = useQuery({
         queryKey: ['projects'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/projects')
@@ -14,6 +15,9 @@ const HomeProjects = () => {
         }
 
     })
+    if (isLoading) {
+        return <LoadingSpinner />
+    }
     return (
         <div className='md:mx-10 mx-5'>
             <h1 className='text-center md:text-5xl text-2xl text-white my-10 font-bold  '>My Projects</h1>

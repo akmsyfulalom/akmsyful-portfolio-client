@@ -1,6 +1,7 @@
 import About from "../../Pages/About/About";
 import ViewBlog from "../../Pages/Blogs/ViewBlog";
 import Contact from "../../Pages/Contact/Contact";
+import Skillset from "../../Pages/Skillset/Skillset";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Dashboard } = require("../../Layout/Dashboard");
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
+            },
+            {
+                path: '/skillset',
+                element: <Skillset></Skillset>
             },
             {
                 path: '/projects',

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaHome, FaAlignJustify, FaInfoCircle, FaUserPlus, FaNewspaper } from "react-icons/fa";
+import { FaHome,FaUserGraduate, FaAlignJustify, FaInfoCircle, FaUserPlus, FaNewspaper } from "react-icons/fa";
+
 
 const Navbar = () => {
 
@@ -8,6 +9,7 @@ const Navbar = () => {
     const menuItems = <>
 
         <li> <Link to='/'><FaHome className='-mr-2'></FaHome> Home</Link> </li>
+        <li><Link to="skillset"><FaUserGraduate className='-mr-2'></FaUserGraduate> Skillset</Link></li>
         <li> <Link to='/projects'><FaAlignJustify className='-mr-2'></FaAlignJustify> Projects</Link> </li>
         <li> <Link to='/blogs'><FaNewspaper className='-mr-2'></FaNewspaper> Blogs</Link> </li>
         <li> <Link to='/about'><FaInfoCircle className='-mr-2'></FaInfoCircle> About</Link> </li>
